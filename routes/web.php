@@ -31,11 +31,17 @@ Route::pattern('student_no','s[0-9]{10}');
     ])->where(['subject'=>'(chinese|english|math)']);
 });
 */
+Route::get('/board','BoardController@getIndex');
+
 
 Route::pattern('student_no','s3[A-Z][0-9]{6}');
 Route::pattern('subject','(chinese|english|math)');
 
 Route::get('/','HomeController@index');
+
+Route::group(['namespace' => 'Cool'],function (){
+    Route::get('cool', 'TestController@index');
+});
 
 Route::group(['prefix'=>'student'],function(){
 	
