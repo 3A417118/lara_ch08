@@ -35,6 +35,7 @@ Route::get('/board','BoardController@getIndex');
 
 
 Route::pattern('student_no','s3[A-Z][0-9]{6}');
+
 Route::pattern('subject','(chinese|english|math)');
 
 Route::get('/','HomeController@index');
@@ -51,6 +52,7 @@ Route::group(['prefix'=>'student'],function(){
         'as'=>'student',
         'uses'=>'StudentController@getStudentData'
     ]);    
+	
     Route::get('{student}/score/{subject?}',[
         'as'=>'student.score',
         'uses'=>'StudentController@getStudentData'
