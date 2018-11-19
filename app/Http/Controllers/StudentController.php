@@ -3,6 +3,7 @@
  use Illuminate\Http\Request;
  use View;
 use App\Student;
+use App\Http\Requests;
 
  class StudentController extends Controller
 {
@@ -14,11 +15,14 @@ use App\Student;
             'subject'=>null
         ]);
 		*/
+		$student=Student::where('no',$student_no)->firstOrFail();
+
 		return View::make('student',[
-            'student' => $student,
-            'user' => $student->user,
-            'score' => $student->score,
-            'subject' => null
+            'student'=>$student,
+            'user'=>$student->user,
+            'score'=>$student->score,
+            'subject'=>null
+
         ]);
 
     }
@@ -33,10 +37,10 @@ use App\Student;
 		
 		        $student=Student::where('no',$student_no)->firstOrFail();
         return View::make('student',[
-            'student' => $student,
-            'user' => $student->user,
-            'score' => $student->score,
-            'subject' => $subject
+'student'=>$student,
+            'user'=>$student->user,
+            'score'=>$student->score,
+            'subject'=>$subject
         ]);
 
 
