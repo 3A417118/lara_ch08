@@ -39,6 +39,8 @@ Route::pattern('subject','(chinese|english|math)');
 
 Route::get('/','HomeController@index');
 
+Route::get('/score', 'StudentController@getStudentScore');
+
 Route::group(['namespace' => 'Cool'],function (){
     Route::get('cool', 'TestController@index');
 });
