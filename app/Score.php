@@ -14,11 +14,13 @@
        return $this->belongsTo(Student::class);
     }
      public function scopeOrderByTotal($query){
-        return $query->orderBy('score.total','DESC');
+        return $query -> orderBy('scores.total','DESC');
+
     }
-     public function scopeOrderBySubject($query){
-        return $query->orderBy('score.chinese','DESC')
-                    ->orderBy('score.english','DESC')
-                    ->orderBy('score.math','DESC');
+         public function scopeOrderBySubject($query){
+        return $query -> orderBy('scores.chinese','DESC')
+                      -> orderBy('scores.english','DESC')
+                      -> orderBy('scores.math','DESC');
+
     }
 }
