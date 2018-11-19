@@ -35,6 +35,8 @@ Route::pattern('student_no','s[0-9]{10}');
 Route::pattern('student_no','s3[A-Z][0-9]{6}');
 Route::pattern('subject','(chinese|english|math)');
 
+Route::get('/','HomeController@index');
+
 Route::group(['prefix'=>'student'],function(){
 	
 	Route::get('{student_no}',[
